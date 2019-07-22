@@ -7,15 +7,14 @@ FETCHING_FAILED
 } from './types';
 
 const api = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?g=Cocktail_glass';
-export async function showDrinks () {
-    return (dispatch , getState) => {
+export  function showDrinks () {
+    return async(dispatch , getState) => {
         try {
         const drinksState = getState ().drinks.toObject();    
-        axios.get(api)
-        .then ((response) =>{
-            dispatch ( {type: FETCHING_START} );
+        const response = await axios.get(api)
+        dispatch ( {type: FETCHING_START} );
             if(!drinksState.isloading){
-                const data = response.ok ? response.json() : null;
+                const data =  response.data
                 const list = data.drinks.map(drink =>({
                     id: drink.idDrink,
                     name: drink.strDrink,
@@ -23,7 +22,6 @@ export async function showDrinks () {
                 }));
                 dispatch({ type: FETCHING_SUCCESS , payload: list });
             }
-        })
     } catch (err) {
         dispatch({ type: FETCHING_FAILED });
     }

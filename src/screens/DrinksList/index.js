@@ -5,6 +5,7 @@ import {Alert} from 'react-native';
 import { showDrinks } from '../../actions/drinks';
 
 import DrinksLayout from './layout';
+import Styles from './styles'
 
 class DrinksList extends Component {
     
@@ -19,7 +20,12 @@ class DrinksList extends Component {
           }
     }
    handleRefresh = () => this.props.showDrinks();
-
+   
+   static navigationOptions = {
+       title: 'Drinks',
+       headerTitleStyle: Styles.navigation,
+   }
+   
    render (){
     const {drinks} = this.props;
        return(
@@ -35,7 +41,7 @@ class DrinksList extends Component {
 
 const mapStateToProps = (state) => {
     return{
-    drinks: showDrinks(state.drinks)
+    drinks: state.drinks.toObject(),
   };
  }
 const mapDispatchToProps = dispatch => ({

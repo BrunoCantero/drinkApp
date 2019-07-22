@@ -14,23 +14,23 @@ const drinksProps = {
 };
 
 const drinksStateProps = {
-    isloading: PropTypes.bool.isRequired,
+    loading: PropTypes.bool.isRequired,
     error: PropTypes.bool.isRequired,
     list: PropTypes.arrayOf(PropTypes.shape(drinksProps)).isRequired,
 };
 
-const DrinksLayout = ({ data , isloading , onRefresh }) => (
+const DrinksLayout = ({ data , loading , onRefresh }) => (
     <Container>
         <Text style = { styles.title }>Drinks</Text>
         <FlatList
           style= {styles.backgroundList}
           contentContainerStyle= {styles.containerList}
           data= {data}
-          refreshing={isloading}
+          refreshing={loading}
           onRefresh={onRefresh}
           keyExtractor={drink => drink.id}
-          renderItem={({drink}) =>(
-            <DrinkComponent {...drink} />
+          renderItem={({item}) =>(
+            <DrinkComponent {...item} />
           )}
         />
     </Container>

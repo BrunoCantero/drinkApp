@@ -15,6 +15,10 @@ const styles = StyleSheet.create({
         paddingHorizontal: 13,
         paddingVertical: 9,
     },
+    navigation:{
+        fontSize: 20,
+        color:'#000000',
+    }
 });
 
 export default styles;

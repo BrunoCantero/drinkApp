@@ -1,5 +1,5 @@
 import {  combineReducers  } from 'redux';
-import { showDrinks } from '../actions/drinks';
+import { showDrinks } from './drinks';
 
 const rootReducer = combineReducers({
     drinks: showDrinks
