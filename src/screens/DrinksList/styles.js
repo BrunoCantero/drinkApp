@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
         color: '#4B28F6',
         padding: 15,
         textAlign:'center',
-        fontWeight: '450',
+        fontWeight: '500',
     },
     backgroundList: {
         backgroundColor: '#F2F4F6',

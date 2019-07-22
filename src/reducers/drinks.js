@@ -1,14 +1,15 @@
+import { Map } from 'immutable';
 import {
 FETCHING_START,
 FETCHING_SUCCESS,
 FETCHING_FAILED
 } from '../actions/types'
 
-const initialState = {
+const initialState = Map({
     isloading: false,
     list: [],
-    error:false
-}
+    error:false,
+});
 
 
 export function showDrinks ( state = initialState, action ){
@@ -19,7 +20,8 @@ export function showDrinks ( state = initialState, action ){
         case FETCHING_SUCCESS:
             return state
             .set('isloading',false)
-            .set('list',payload);
+            .set('list',payload)
+            .set('error',false);
         case FETCHING_FAILED:
             return state.set('isloading',false).set('error',true);
         default:

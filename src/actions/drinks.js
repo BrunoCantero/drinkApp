@@ -15,7 +15,8 @@ export async function showDrinks () {
         .then ((response) =>{
             dispatch ( {type: FETCHING_START} );
             if(!drinksState.isloading){
-                const list = response.data.drinks.map(drink =>({
+                const data = response.ok ? response.json() : null;
+                const list = data.drinks.map(drink =>({
                     id: drink.idDrink,
                     name: drink.strDrink,
                     photo: drink.strDrinkThumb,
