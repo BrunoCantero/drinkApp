@@ -19,7 +19,10 @@ class DrinksList extends Component {
             Alert.alert('error recuperando tragos');
           }
     }
-   handleRefresh = () => this.props.showDrinks();
+    handleRefresh = () =>{
+        const { showDrinks } = this.props
+        return showDrinks();
+    }
    
    static navigationOptions = {
        title: 'Drinks',

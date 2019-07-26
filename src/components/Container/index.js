@@ -3,7 +3,7 @@ import { SafeAreaView } from 'react-native';
 
 import styles from './styles';
 
-const Container = ( { children }) => (
+const Container = ({ children }) => (
     <SafeAreaView style={styles.Container} >
         {children}
     </SafeAreaView>

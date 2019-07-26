@@ -1,20 +1,18 @@
-import axios from 'axios'
-
+ import * as drinksServices from '../services/api';
+ 
 import {
 FETCHING_START,
 FETCHING_SUCCESS,
 FETCHING_FAILED
 } from './types';
 
-const api = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?g=Cocktail_glass';
 export  function showDrinks () {
     return async(dispatch , getState) => {
         try {
-        const drinksState = getState ().drinks.toObject();    
-        const response = await axios.get(api)
+        const drinksState = getState().drinks.toObject();    
         dispatch ( {type: FETCHING_START} );
             if(!drinksState.isloading){
-                const data =  response.data
+                const data = await drinksServices.showDrinksConnected();
                 const list = data.drinks.map(drink =>({
                     id: drink.idDrink,
                     name: drink.strDrink,
