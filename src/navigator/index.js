@@ -1,11 +1,9 @@
-import { createStackNavigator , createAppContainer } from 'react-navigation';
+import {  createAppContainer, createBottomTabNavigator} from 'react-navigation';
 
 import DrinksList from '../screens/DrinksList';
 
-const AppNavigator = createStackNavigator ({
-    Home : {
-        screen: DrinksList
-    }
+const AppNavigator = createBottomTabNavigator ({
+    Home: DrinksList,
 });
 
 export default createAppContainer(AppNavigator);

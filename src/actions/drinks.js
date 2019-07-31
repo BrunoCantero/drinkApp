@@ -1,5 +1,5 @@
- import * as drinksServices from '../services/api';
- 
+import  drinkService  from '../provider/services';
+
 import {
 FETCHING_START,
 FETCHING_SUCCESS,
@@ -12,7 +12,7 @@ export  function showDrinks () {
         const drinksState = getState().drinks.toObject();    
         dispatch ( {type: FETCHING_START} );
             if(!drinksState.isloading){
-                const data = await drinksServices.showDrinksConnected();
+                const data = await drinkService();
                 const list = data.drinks.map(drink =>({
                     id: drink.idDrink,
                     name: drink.strDrink,

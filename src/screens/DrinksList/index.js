@@ -7,8 +7,10 @@ import { showDrinks } from '../../actions/drinks';
 import DrinksLayout from './layout';
 import Styles from './styles'
 
+
+
 class DrinksList extends Component {
-    
+
     componentDidMount(){
         this.handleRefresh();
     }
@@ -20,15 +22,25 @@ class DrinksList extends Component {
           }
     }
     handleRefresh = () =>{
-        const { showDrinks } = this.props
+        const { showDrinks } = this.props;
         return showDrinks();
     }
    
    static navigationOptions = {
-       title: 'Drinks',
-       headerTitleStyle: Styles.navigation,
+       title: 'Home',
+       titleStyle: Styles.navigation,
+       tabBarOptions :{
+            activeTintColor: 'blue',
+            labelStyle: {
+            fontSize: 15,
+            padding: 12,
+            },
+            style: {
+            backgroundColor: 'white',
+            },
+        }
    }
-   
+  
    render (){
     const {drinks} = this.props;
        return(
@@ -42,9 +54,9 @@ class DrinksList extends Component {
 }
 
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({drinks}) => {
     return{
-    drinks: state.drinks.toObject(),
+    drinks: drinks.toObject(),
   };
  }
 const mapDispatchToProps = dispatch => ({

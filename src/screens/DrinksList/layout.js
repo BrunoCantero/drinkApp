@@ -14,7 +14,7 @@ const drinksProps = {
 };
 
 const drinksStateProps = {
-    loading: PropTypes.bool.isRequired,
+    isloading: PropTypes.bool.isRequired,
     error: PropTypes.bool.isRequired,
     list: PropTypes.arrayOf(PropTypes.shape(drinksProps)).isRequired,
 };
@@ -36,11 +36,11 @@ const DrinksLayout = ({ data , loading , onRefresh }) => (
     </Container>
 );
 
-DrinksLayout.PropTypes = {
-    data: PropTypes.arrayOf(PropTypes.shape(drinksProps)).isRequired,
-    isloading: PropTypes.bool.isRequired,
-    onRefresh: PropTypes.func.isRequired,
-};
+/* DrinksLayout.PropTypes = {
+  data: PropTypes.arrayOf(PropTypes.shape(drinksProps)).isRequired,
+  loading: PropTypes.bool.isRequired,
+  onRefresh: PropTypes.func.isRequired,
+}; */
 
 
 export default DrinksLayout;
