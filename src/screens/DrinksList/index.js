@@ -42,11 +42,11 @@ class DrinksList extends Component {
    }
   
    render (){
-    const {drinks} = this.props;
+    const {drinksList , drinksIsloading} = this.props;
        return(
            <DrinksLayout 
-            loading={drinks.isloading}
-            data = {drinks.list}
+            loading={drinksIsloading}
+            data = {drinksList}
             onRefresh={this.handleRefresh}
            />
        );
@@ -54,11 +54,12 @@ class DrinksList extends Component {
 }
 
 
-const mapStateToProps = ({drinks}) => {
-    return{
-    drinks: drinks.toObject(),
-  };
- }
+const mapStateToProps = (state) => ({
+
+    drinksList: state.drinks.list,
+    drinksIsloading: state.drinks.isloading,
+   
+});
 const mapDispatchToProps = dispatch => ({
     showDrinks: () => dispatch(showDrinks()),
 });

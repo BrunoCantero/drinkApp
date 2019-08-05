@@ -9,7 +9,7 @@ FETCHING_FAILED
 export  function showDrinks () {
     return async(dispatch , getState) => {
         try {
-        const drinksState = getState().drinks.toObject();    
+        const drinksState = getState();    
         dispatch ( {type: FETCHING_START} );
             if(!drinksState.isloading){
                 const data = await drinkService();
@@ -18,7 +18,7 @@ export  function showDrinks () {
                     name: drink.strDrink,
                     photo: drink.strDrinkThumb,
                 }));
-                dispatch({ type: FETCHING_SUCCESS , payload: list });
+        dispatch({ type: FETCHING_SUCCESS , payload: list });
             }
     } catch (err) {
         dispatch({ type: FETCHING_FAILED });
