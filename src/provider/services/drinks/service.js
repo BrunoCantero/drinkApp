@@ -1,7 +1,7 @@
 import ServiceConfig from './config';
 
-export default class AppService {
-  static getConfig() {
+export default class DrinkService {
+  static fetchDrinks() {
     return new Promise(async (resolve, reject) => {
       try {
         const endpoint = ServiceConfig.endpoint;
