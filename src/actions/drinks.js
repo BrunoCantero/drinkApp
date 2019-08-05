@@ -1,4 +1,4 @@
-import  drinkService  from '../provider/services';
+import AppService from '../provider/services/drinks/service';
 
 import {
 FETCHING_START,
@@ -12,7 +12,7 @@ export  function showDrinks () {
         const drinksState = getState();    
         dispatch ( {type: FETCHING_START} );
             if(!drinksState.isloading){
-                const data = await drinkService();
+                const data = await AppService.getConfig();
                 const list = data.drinks.map(drink =>({
                     id: drink.idDrink,
                     name: drink.strDrink,
