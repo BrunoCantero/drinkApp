@@ -54,7 +54,7 @@ class DrinksList extends Component {
 }
 
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
 
     drinksList: state.drinks.list,
     drinksIsloading: state.drinks.isloading,
